@@ -1,25 +1,21 @@
 # HW3-OS
 
-Description
-This project was part of my Homework 3 for the Operating Systems course. The task was to create a multithreaded C program that calculates the sum of numbers from 0 to 9999 using the Pthreads library. The program is structured so that 10 separate threads are created, each responsible for summing a block of 1000 numbers. After the threads complete their tasks, the main program combines their results and prints the total sum.
+Abstract
+This document presents a multithreaded program developed in C to compute the sum of integers from 0 to 9999. The program utilizes the Pthreads library to distribute the workload across 10 threads, each responsible for calculating a block of 1000 numbers. The result demonstrates the efficiency of parallel computing for large-scale summations.
 
-Files
-The project includes the following files:
+Introduction
+Multithreading is an essential technique in parallel computing, improving the performance of CPU-bound applications. This project involves a CPU-intensive task that computes the sum of integers from 0 to 9999 by creating 10 threads, each tasked with summing a range of 1000 numbers. The Pthreads library is used to implement multithreading in C. The goal is to explore the benefits of parallel computation by dividing the task among multiple threads and joining the results to compute the final sum.
 
-HW3-OS(code).c: This is the C program that implements the multithreaded sum calculator.
-Intro to OS HW 3.pdf: A PDF file that contains all the questions and answers from my Homework 3 assignment, including this programming task.
-README.md: The file you are currently reading, which explains the purpose of the project and provides an overview of how it works.
-How I Compiled and Ran the Program
-I worked on the project using Visual Studio Code on my machine. I had set up the environment by installing the necessary C/C++ extensions to ensure smooth code editing and compiling within VS Code. After writing the program, I compiled it using gcc with support for Pthreads, the library that allows multithreading in C.
+Methodology
+The program divides the summation task into 10 parts. Each thread computes the sum for a range of 1000 numbers, from 0–999, 1000–1999, up to 9000–9999. Once each thread completes its task, the main thread joins all threads, ensuring synchronization, and then aggregates the results to produce the final sum.
 
-Once the program was compiled, I ran it directly in the integrated terminal within VS Code. The program executed successfully, with all 10 threads computing their respective ranges of numbers. The final result was the sum of all numbers from 0 to 9999, which was correctly calculated and displayed.
+The program was developed and tested using Visual Studio Code with appropriate extensions for C/C++ and multithreading. The environment was set up to support the Pthreads library for thread management, compilation, and execution of the multithreaded program.
 
-How the Code Works
-The core of the program is a multithreaded approach to summing numbers from 0 to 9999. The task is divided among 10 threads, each responsible for calculating the sum of a range of 1000 numbers. For example, the first thread sums the numbers from 0 to 999, the second thread sums the numbers from 1000 to 1999, and so on. Each thread performs its calculation independently.
+Results
+The program successfully created 10 threads, each calculating a sum of its assigned range. After the threads were joined, the total sum of numbers from 0 to 9999 was correctly computed as 49,995,000. This demonstrates the effectiveness of multithreading in dividing and conquering computational tasks.
 
-Once all threads have completed their work, the main thread waits for them to finish and then gathers the results. This is done through a process called "joining" threads, which ensures that the main thread does not proceed until all worker threads have completed their tasks. After gathering the partial sums from each thread, the main thread adds them together to compute the total sum.
-
-The expected output of the program is the sum of all numbers from 0 to 9999, which is 49,995,000. The program successfully demonstrates the use of multithreading to parallelize the calculation, making it more efficient by distributing the workload across multiple threads.
+Discussion
+The use of multithreading in this project highlights its potential to improve performance in CPU-bound applications. By parallelizing the task of summing numbers, the workload is evenly distributed, allowing for faster execution in comparison to a single-threaded approach. The thread synchronization method ensures that the final result is accurate and consistent.
 
 Conclusion
-This project showcases a practical application of multithreading in C using the Pthreads library. By breaking down a simple sum calculation into parallel tasks, the program efficiently distributes the workload among 10 threads. The project was compiled and executed within VS Code, and the results were as expected, demonstrating the effectiveness of the multithreading approach.
+This project showcases the application of multithreading in C using the Pthreads library. By dividing the summation of numbers into smaller tasks and parallelizing them across multiple threads, the overall performance of the application is improved. The project was successfully developed and tested in Visual Studio Code, demonstrating the correct calculation of the sum of numbers from 0 to 9999.
